@@ -77,13 +77,24 @@ for i in range(4):  # 假设有四个标签
 
     # 输出结果
     st.write(f"- {label_name}: {'Yes' if predicted_class[i] == 1 else 'No'} (Probability: {probability})")
-    
-    
-    
-    # 解释预测结果
+        
+
+    # 显示预测结果
+    st.subheader("Prediction Results:")
+    st.write("Risk Prediction:")
+    st.write(f"- Heart Failure: {'Yes' if predicted_class[0]== 1 else 'No'} (Probability: {predicted_proba[0][0]:.2f})")
+    st.write(f"- Myocardial Infarction: {'Yes' if predicted_class[1] == 1 else 'No'} (Probability: {predicted_proba[0][1]:.2f})")
+    st.write(f"- Stroke: {'Yes' if predicted_class[2] == 1 else 'No'} (Probability: {predicted_proba[0][2]:.2f})")
+    st.write(f"- Death: {'Yes' if predicted_class[3] == 1 else 'No'} (Probability: {predicted_proba[0][3]:.2f})")
+
+# 解释预测结果
     exp = explainer.explain_instance(feature_values[0], model.predict_proba, num_features=len(feature_names))
     
     # 可视化解释
     st.subheader("Feature Importance:")
     exp.show_in_notebook(show_table=True, show_all=False)
+
+
+
+
 

@@ -1,6 +1,7 @@
 joblib
-matplotlib
 numpy
 pandas
 shap
+matplotlib
+lime
 streamlit
