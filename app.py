@@ -223,15 +223,15 @@ with st.expander("🔧 Advanced Clinical Features (Click to expand)", expanded=F
 st.markdown("---")
 
 with st.form("prediction_form"):
-    st.subheader("🔬 个人风险解释设置")
+    st.subheader("🔬 Individual Risk Explanation Setting")
     shap_label_idx = st.selectbox(
-        "选择结果进行解释", 
+        "Select Outcome to Explain", 
         options=list(range(len(label_cols))), 
         format_func=lambda i: display_labels[i], 
         index=0,
         key="main_outcome_select"  
     )
-    submit_btn = st.form_submit_button("🔍 预测风险", type="primary")
+    submit_btn = st.form_submit_button("🔍 Predict Risk", type="primary")
 
 # ============================================================
 # 6. 预测输出与 SHAP 画图（只有点按钮才会执行）
@@ -275,7 +275,7 @@ if submit_btn:
     # 7. SHAP 解释（彻底根除 other features）
     # ============================================================
     st.markdown("---")
-    st.subheader("🔬 个人风险解释 (SHAP)")
+    st.subheader("🔬 Individual Risk Explanation (SHAP)")
 
     chain0 = chains[0]
     order0 = chain0['order']
